@@ -1,17 +1,51 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Suivi des commandes
     </ion-title>
   </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="suivi" color="primary">
+      <ion-segment-button value="EnCours">
+        En cours
+      </ion-segment-button>
+      <ion-segment-button value="Livraison">
+        En livraison
+      </ion-segment-button>
+      <ion-segment-button value="Termine">
+        Terminé
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <div [ngSwitch]="suivi" >
+    <ion-list *ngSwitchCase="'EnCours'">
+        <ion-list-header>
+      Hobbits
+    </ion-list-header>
+    <a ion-item (click)="openModal({charNum: 0})">
+      Gollum
+    </a>
+    <a ion-item (click)="openModal({charNum: 1})">
+      Frodo Baggins
+    </a>
+    <a ion-item (click)="openModal({charNum: 2})">
+      Sam
+    </a>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Livraison'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-puppy-1.jpg">
+        </ion-thumbnail>
+        <h2>Ruby</h2>
+      </ion-item>
+   </ion-list>
+  </div>
+  
 </ion-content>
+
+

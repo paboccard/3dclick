@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
 import { CartPage } from '../cart/cart';
-import { AccountPage } from '../account/account';
+import { SearchPage } from '../search/search';
 import { SendPage } from '../send/send';
 import { SettingsPage } from '../settings/settings';
 
@@ -14,7 +14,7 @@ export class TabsPage {
   // should be each tab's root Page
   tab1Root: any = HomePage;
   tab2Root: any = CartPage;
-  tab3Root: any = AccountPage;
+  tab3Root: any = SearchPage;
   tab4Root: any = SendPage;
   tab5Root: any = SettingsPage;
 

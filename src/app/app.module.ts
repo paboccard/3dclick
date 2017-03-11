@@ -2,21 +2,22 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CartPage } from '../pages/cart/cart';
-import { AccountPage } from '../pages/account/account';
+import { SearchPage } from '../pages/search/search';
 import { HomePage } from '../pages/home/home';
 import { SendPage } from '../pages/send/send';
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import { ModalContentPage } from '../pages/send/send';
 @NgModule({
   declarations: [
     MyApp,
     SettingsPage,
     CartPage,
     HomePage,
-    AccountPage,
+    SearchPage,
     SendPage,
-    TabsPage
+    TabsPage,
+    ModalContentPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,9 +28,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     SettingsPage,
     CartPage,
     HomePage,
-    AccountPage,
+    SearchPage,
     SendPage,
-    TabsPage
+    TabsPage,
+    ModalContentPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

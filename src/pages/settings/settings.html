@@ -1,45 +1,297 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Paramètres
-    </ion-title>
-  </ion-navbar>
+
+
+  <ion-header>
+    <ion-toolbar color="ter">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>Mon compte
+        </ion-title>
+        <ion-buttons end *ngIf="!edited && onglet=='info'">
+            <button ion-button icon-only (click)="changeLabel()">
+                <ion-icon name="ios-create-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div > 
-                                <div class="item item-divider" >test1</div> 
-                                <div > 
-                                    <ion-item class="item-icon-right"  > 
-                                        <div class="ionic-settings-left">test2</div> 
-                                        <div class="ionic-settings-right ionic-settings-ios" >test3</div> 
-                                        <div class="ionic-settings-android" >test4</div> 
-                                        <i class="icon test ionic-settings-icon-smaller test"></i> 
-                                        <i class="icon test icon-accessory ion-chevron-right"></i> 
-                                    </ion-item> 
-                                    <ion-toggle   
-                                                toggle-class="toggle-blue"  >  
-                                        test5 
-                                        <i class="icon ionic-settings-icon-smaller test test"></i> 
-                                    </ion-toggle> 
-                                    <ion-toggle   
-                                                toggle-class="toggle-blue"  >  
-                                        test5 
-                                        <i class="icon ionic-settings-icon-smaller" ></i> 
-                                    </ion-toggle> 
-                                    <div class="item item-icon-left"> 
-                                        <i class="icon ionic-settings-icon-smaller"></i> 
-                                        <label class="item item-borderless item-input"> 
-                                            <span class="input-label" style="margin-left: -13px;">test6</span> 
-                                            <input type="list"> 
-                                        </label> 
-                                    </div> 
-                                    <label class="item item-input"> 
-                                        <span class="input-label">test7</span> 
-                                        <input type="list"> 
-                                    </label>
-                                </div>  
-                            </div>
+
+<ion-content padding >
+    <ion-segment [(ngModel)]="onglet">
+      <ion-segment-button value="info">
+          Mes informations
+      </ion-segment-button>
+      <ion-segment-button value="plan">
+          Mes plans
+      </ion-segment-button>
+      <ion-segment-button value="pay">
+          Paiement
+      </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="onglet" col-lg-10>
+
+        <div *ngSwitchCase="'info'">
+            <div center>
+                <button ion-button round color="danger" *ngIf="edited" (click)="cancelChanges()">Annuler</button>
+                <button ion-button round color="secondary" *ngIf="edited">Valider</button>
+            </div>
+            <ion-list no-lines>
+                <ion-item>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-label stacked>Nom</ion-label>
+                    <ion-input id="lblLastName" disabled="{{isDisabled}}" type="text" value="Boccard"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-label stacked>Prénom</ion-label>
+                    <ion-input disabled="{{isDisabled}}" type="text" value="Pierre-Alexis"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-label stacked>Date de naissance</ion-label>
+                    <ion-input disabled="{{isDisabled}}" type="text" value="16.08.1993"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-label stacked>Adresse</ion-label>
+                    <ion-input disabled="{{isDisabled}}" type="text" value="9, rue Ferruce - 84000 Avignon"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-label stacked>Password</ion-label>
+                    <ion-input disabled="{{isDisabled}}" type="password" value="boccard"></ion-input>
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <div *ngSwitchCase="'plan'">
+          <ion-toolbar no-border-top>
+              <ion-searchbar color="primary"
+                  [(ngModel)]="queryText"
+                  (ionInput)="updateSchedule()"
+                  placeholder="Search">
+              </ion-searchbar>
+          </ion-toolbar>
+
+          <ion-list>
+            <ion-item-sliding>
+
+            <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+              <ion-fab top right >
+              <button ion-fab><ion-icon name="share"></ion-icon></button>
+              <ion-fab-list side="left">
+                <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+                <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+              </ion-fab-list>
+            </ion-fab>
+
+            </ion-item>
+
+            <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+
+            </ion-item>
+
+          <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+
+            </ion-item>
+
+            <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+
+            </ion-item>
+
+            <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+
+            </ion-item>
+
+            <ion-item>
+
+              <ion-avatar item-left>
+                <img src="img/img1.jpeg">
+              </ion-avatar>
+
+              <h2>Dragon Game of thrones</h2>
+
+              <ion-icon color="secondary" name="happy" item-right></ion-icon> 
+              3
+
+            </ion-item>
+            <ion-item-options>
+              <button ion-button color="danger">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+
+        </div>
+
+        <div *ngSwitchCase="'pay'">
+          
+          <ion-item no-lines>
+        <ion-label left>Solde</ion-label>
+        <ion-label right type="text">76€</ion-label>
+      </ion-item>
+      <button ion-button round class="disable-hover button button-ios button-default button-default-ios button-round button-round-ios"><span class="button-inner">Virement</span><div class="button-effect"></div></button>
+
+      <ion-card class="creditcard_content">
+        <ion-card-header class="title_card" color="#FFF">
+          Carte de crédit numéro 1
+        </ion-card-header>
+
+        <ion-item no-lines class="credit">
+        
+        <ion-input  type="number"
+                    id="Credit cardnumber"
+                    placeholder="Credit Card number"
+                    class="form-control"
+                    pattern="[0-9]{10}"></ion-input>
+        <ion-icon name="ios-card" item-right primary></ion-icon>
+        </ion-item>
+
+        <ion-row>
+        <ion-col width-49>
+        <ion-item   class="month">
+        <ion-input left type="number"
+                    placeholder="MM"
+                    pattern="[0-9]{2}"
+                    ></ion-input>
+        </ion-item>
+        </ion-col>
+        <span class="symbol">/</span>
+        <ion-col width-49>
+        <ion-item   class="year">
+        <ion-input right  type="number"
+                    placeholder="YY"
+                    pattern="[0-9]{2}"></ion-input>
+        </ion-item>
+        </ion-col>
+        <ion-item   class="cvv">
+        <ion-input   type="password"
+                    placeholder="CVV"
+                    pattern="[0-9]{3}"></ion-input>
+        </ion-item>
+        
+        </ion-row>
+      </ion-card>
+      
+        </div>
+    </div>
+
 </ion-content>
 
+<ion-menu side="right" id="menuSettings" [content]="mycontent">
 
+  <ion-header>
+        <ion-title>Parametre
+        </ion-title>
+</ion-header>
+
+  <ion-content id="menuSettings">
+
+      <div id="defaultParam">
+          <ion-item>
+            <ion-label>Qualité par défaut</ion-label>
+            <ion-select [(ngModel)]="Quality">
+              <ion-option value="low">Basse</ion-option>
+              <ion-option value="middle" selected="true">Moyenne</ion-option>
+              <ion-option value="high">Elevé</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Texture par défaut</ion-label>
+            <ion-select [(ngModel)]="Texture">
+              <ion-option value="low" selected="true">Plastique</ion-option>
+              <ion-option value="middle">Acier</ion-option>
+              <ion-option value="high">Aluminium</ion-option>
+              <ion-option value="high">Bois</ion-option>
+            </ion-select>
+          </ion-item>
+      </div>
+
+      <div id="defaultLanguage">
+          <ion-item>
+            <ion-label>Langage par défaut</ion-label>
+            <ion-select [(ngModel)]="Laguage">
+              <ion-option value="low" selected="true">Français</ion-option>
+              <ion-option value="middle">Anglais</ion-option>
+            </ion-select>
+          </ion-item>
+      </div>
+
+      <div id="param">
+          <ion-list>
+            <ion-item>
+              <ion-label>Notification</ion-label>
+              <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Localisation</ion-label>
+              <ion-toggle [(ngModel)]="localisation" color="secondary"></ion-toggle>
+            </ion-item>
+
+          </ion-list>
+      </div>
+
+      <div class="separateur"></div>
+
+      <div id="legal">
+          <span><a href="">A propos</a></span>
+          <span><a href="">Condition d'utilisation</a></span>
+          <span><a href="">Nos boutiques</a></span>
+      </div>
+
+          
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #mycontent [root]="rootPage"></ion-nav>
