@@ -1,4 +1,71 @@
+<ion-menu side="left" id="menuSettings" [content]="mycontent">
 
+  <ion-header>
+        
+    <ion-item>
+      <ion-item menuClose item-left detail-none><ion-icon name="arrow-back"><span class="marginleft50">Paramètre</span></ion-icon></ion-item>
+    </ion-item>
+  </ion-header>
+  
+
+  <ion-content>
+
+      <div id="defaultParam">
+          <ion-item>
+            <ion-label>Qualité par défaut</ion-label>
+            <ion-select [(ngModel)]="Quality">
+              <ion-option value="low">Basse</ion-option>
+              <ion-option value="middle" selected="true">Moyenne</ion-option>
+              <ion-option value="high">Elevé</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Texture par défaut</ion-label>
+            <ion-select [(ngModel)]="Texture">
+              <ion-option value="low" selected="true">Plastique</ion-option>
+              <ion-option value="middle">Acier</ion-option>
+              <ion-option value="high">Aluminium</ion-option>
+              <ion-option value="high">Bois</ion-option>
+            </ion-select>
+          </ion-item>
+      </div>
+
+      <div id="defaultLanguage">
+          <ion-item>
+            <ion-label>Langage par défaut</ion-label>
+            <ion-select [(ngModel)]="Laguage">
+              <ion-option value="low" selected="true">Français</ion-option>
+              <ion-option value="middle">Anglais</ion-option>
+            </ion-select>
+          </ion-item>
+      </div>
+
+      <div id="param">
+          <ion-list>
+            <ion-item>
+              <ion-label>Notification</ion-label>
+              <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Localisation</ion-label>
+              <ion-toggle [(ngModel)]="localisation" color="secondary"></ion-toggle>
+            </ion-item>
+
+          </ion-list>
+      </div>
+
+      <div class="separateur"></div>
+
+      <div id="legal">
+          <span><a href="">A propos</a></span>
+          <span><a href="">Condition d'utilisation</a></span>
+          <span><a href="">Nos boutiques</a></span>
+      </div>
+
+          
+  </ion-content>
+</ion-menu>
 
   <ion-header>
     <ion-toolbar color="ter">
@@ -228,70 +295,6 @@
 
 </ion-content>
 
-<ion-menu side="right" id="menuSettings" [content]="mycontent">
 
-  <ion-header>
-        <ion-title>Parametre
-        </ion-title>
-</ion-header>
-
-  <ion-content id="menuSettings">
-
-      <div id="defaultParam">
-          <ion-item>
-            <ion-label>Qualité par défaut</ion-label>
-            <ion-select [(ngModel)]="Quality">
-              <ion-option value="low">Basse</ion-option>
-              <ion-option value="middle" selected="true">Moyenne</ion-option>
-              <ion-option value="high">Elevé</ion-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Texture par défaut</ion-label>
-            <ion-select [(ngModel)]="Texture">
-              <ion-option value="low" selected="true">Plastique</ion-option>
-              <ion-option value="middle">Acier</ion-option>
-              <ion-option value="high">Aluminium</ion-option>
-              <ion-option value="high">Bois</ion-option>
-            </ion-select>
-          </ion-item>
-      </div>
-
-      <div id="defaultLanguage">
-          <ion-item>
-            <ion-label>Langage par défaut</ion-label>
-            <ion-select [(ngModel)]="Laguage">
-              <ion-option value="low" selected="true">Français</ion-option>
-              <ion-option value="middle">Anglais</ion-option>
-            </ion-select>
-          </ion-item>
-      </div>
-
-      <div id="param">
-          <ion-list>
-            <ion-item>
-              <ion-label>Notification</ion-label>
-              <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>Localisation</ion-label>
-              <ion-toggle [(ngModel)]="localisation" color="secondary"></ion-toggle>
-            </ion-item>
-
-          </ion-list>
-      </div>
-
-      <div class="separateur"></div>
-
-      <div id="legal">
-          <span><a href="">A propos</a></span>
-          <span><a href="">Condition d'utilisation</a></span>
-          <span><a href="">Nos boutiques</a></span>
-      </div>
-
-          
-  </ion-content>
-</ion-menu>
 
 <ion-nav id="nav" #mycontent [root]="rootPage"></ion-nav>
