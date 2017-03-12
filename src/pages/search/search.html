@@ -6,7 +6,7 @@
 
 
 <ion-content padding >
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)" (search)="onSearch($event)"></ion-searchbar>
 	<ion-list>
 	  <ion-item *ngFor="let item of items">
 	    {{ item }}

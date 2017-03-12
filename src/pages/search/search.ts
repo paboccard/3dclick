@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { Keyboard } from 'ionic-angular';
 
 @Component({
   selector: 'page-search',
@@ -11,10 +11,12 @@ export class SearchPage {
   searchQuery: string = '';
   Category: string[];
   items: string[];
+  Keyboard: Keyboard;
 
-  constructor() {
+  constructor(keyboard: Keyboard) {
     this.initializeCategory();
     this.initializeItems();
+    this.Keyboard = keyboard;
   }
 
   initializeCategory() {
@@ -32,6 +34,10 @@ export class SearchPage {
       'Maison monopoly verte',
       'Maison monopoly starwars'
     ];
+  } 
+
+  onSearch(event) {
+    this.Keyboard.close();
   }
 
   getItems(ev: any) {
