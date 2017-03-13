@@ -1,3 +1,33 @@
 page-home {
-
+	
 }
+
+.scroll-content{
+	/*background-color: rgb(41, 221, 171);*/
+}
+
+ion-scroll.wide-as-needed{
+	overflow: scroll;
+  	white-space: nowrap;
+}
+
+.header_category{
+	background-color : #8E01D0;
+	height : 100%;
+	text-align : middle;
+	color : white;
+}
+
+.product_price{
+	color : #22DD05;
+	font-size : 16px;
+}
+
+/*ion-col{
+	padding: 16px;
+	border: solid 1px #DDD;
+	background-color: rgb(221, 41, 91);
+	color: #FFF;
+	border-radius: 3px;
+	margin: 5px;
+}*/
