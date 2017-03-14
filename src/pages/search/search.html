@@ -7,7 +7,13 @@
 
 <ion-content padding >
     <ion-searchbar (ionInput)="getItems($event)" (search)="onSearch($event)"></ion-searchbar>
-	<ion-list>
+    <ion-list *ngIf="!inSearch">
+    <button ion-item *ngFor="let cat of cats" (click)="openNavDetailsPage(cat)" icon-left>
+      <ion-icon [name]="'logo-' + cat.icon" [ngStyle]="{'color': cat.color}" item-left></ion-icon>
+      {{ cat.title }}
+    </button>
+  </ion-list>
+	<ion-list *ngIf="inSearch">
 	  <ion-item *ngFor="let item of items">
 	    {{ item }}
 	  </ion-item>

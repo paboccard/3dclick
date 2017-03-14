@@ -8,6 +8,9 @@ import { SendPage } from '../pages/send/send';
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ModalContentPage } from '../pages/send/send';
+import { DetailPage } from '../pages/detail/detail';
+import { NavigationDetailsPage } from '../pages/search/search';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -17,7 +20,9 @@ import { ModalContentPage } from '../pages/send/send';
     SearchPage,
     SendPage,
     TabsPage,
-    ModalContentPage
+    ModalContentPage,
+    DetailPage,
+    NavigationDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -31,7 +36,9 @@ import { ModalContentPage } from '../pages/send/send';
     SearchPage,
     SendPage,
     TabsPage,
-    ModalContentPage
+    ModalContentPage,
+    DetailPage,
+    NavigationDetailsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
