@@ -10,18 +10,30 @@
       <button ion-button icon-only color="royal">
         <ion-icon name="person-add"></ion-icon>
       </button>
+      <button ion-button icon-only color="royal" (click)="logout()">
+        <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list no-lines *ngFor="let cat of products">
+
+  <!--<ion-list>
+    <ion-item *ngFor="let cat of theCategories | async">
+      <ion-item *ngFor="let prod of theProducts | async">
+        <ion-label *ngIf="cat.$key == prod.category">{{prod.title}}</ion-label>
+      </ion-item>
+    </ion-item>
+  </ion-list>-->
+
+  <ion-list no-lines *ngFor="let cat of theCategories | async">
     <ion-list-header no-lines class="header_category">
       <ion-label class="category_name">{{cat.categorie}}</ion-label>
     </ion-list-header>
     <ion-row>
-      <ion-col width-50 *ngFor="let product of cat.items">
-      <ion-card (click)="goToProduct(product)">
+      <ion-col width-50 *ngFor="let product of theProducts | async">
+      <ion-card *ngIf="cat.$key == product.category" (click)="goToProduct(product)" >
 
         <img src={{product.imgSrc}}>
 

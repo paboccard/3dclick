@@ -36,3 +36,42 @@ page-contact {
 .marginleft50 {
 	margin-left:50px;
 }
+
+.card_background_page {
+
+    position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+    text-align: center;
+    color : white;
+    
+    ion-item{
+    height : 170px;
+    width : 100%;
+    background-color : #40C1FF;
+	}
+    .img_profil_fond{
+    	-webkit-filter: blur(10px);
+    	width : 100%;
+    	height : 200px;
+    }
+
+  .card_image_profil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width : 100px;
+    height : 100px;
+    margin-top: -50px; 
+    margin-left: -50px;
+  }
+
+
+}
+
+.element_content{
+	margin-top : 170px;
+}
