@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mot de passe oublié</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!--<ion-content padding>
+  <h2>Reset Password</h2>
+  <form [formGroup]="resetpwdForm" (submit)="resetPwd()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+        placeholder="Your email address"
+        [class.invalid]="!resetpwdForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!resetpwdForm.controls.email.valid  && (emailChanged || submitAttempt)">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+    <button ion-button block type="submit">
+      Reset Password
+    </button>
+  </form>
+</ion-content>-->
+
+<ion-content class="login-content" padding>
+  <h2>Mot de passe oublié</h2>
+  <div class="login-box">
+    <form [formGroup]="resetpwdForm" (ngSubmit)="resetPwd()" novalidate>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+                placeholder="Votre adresse mail"
+                [class.invalid]="!resetpwdForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!resetpwdForm.controls.email.valid  && (emailChanged || submitAttempt)">
+              <p>Merci de rentrez votre email.</p>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit">Reset Mot de passe</button>
+        </ion-col>
+      </ion-row>
+      </form>
+      
+  </div>
+</ion-content>

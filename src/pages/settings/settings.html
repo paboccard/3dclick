@@ -83,6 +83,20 @@
 
 
 <ion-content padding >
+  <ion-row class="card_background_page">
+  <ion-item>
+    <!--<img class="img_profil_fond" src="assets/img/profil1.jpg"/>-->
+    <button ion-button color="blanc" style="font-size: 18px; width:50px; height: 40px;" icon-only>
+                <ion-icon name="ios-camera-outline"></ion-icon>
+            </button>
+    <ion-avatar>
+      <img class="card_image_profil" src="assets/img/profil1.jpg"/> 
+    </ion-avatar>
+            
+    </ion-item>
+  </ion-row>
+
+  <div class="element_content">
     <ion-segment [(ngModel)]="onglet">
       <ion-segment-button value="info">
           Mes informations
@@ -291,6 +305,7 @@
       
         </div>
     </div>
+  </div>
 
 </ion-content>
 

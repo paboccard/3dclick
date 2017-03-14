@@ -10,6 +10,28 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ModalContentPage } from '../pages/send/send';
 import { DetailPage } from '../pages/detail/detail';
 import { NavigationDetailsPage } from '../pages/search/search';
+import { ProductPage } from '../pages/product/product';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
+
+// Import the AF2 Module
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+
+import { AuthService } from '../providers/auth-service';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCC91KCGuqRLddIq39J2WH6L0AZQHy1VHw",
+  authDomain: "dclick-33a50.firebaseapp.com",
+  databaseURL: "https://dclick-33a50.firebaseio.com",
+  storageBucket: "dclick-33a50.appspot.com",
+  messagingSenderId: "903964503324"
+};
+
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+}
 
 @NgModule({
   declarations: [
@@ -22,10 +44,15 @@ import { NavigationDetailsPage } from '../pages/search/search';
     TabsPage,
     ModalContentPage,
     DetailPage,
-    NavigationDetailsPage
+    NavigationDetailsPage,
+    ProductPage,
+    LoginPage,
+    RegisterPage,
+    ResetpwdPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,8 +65,13 @@ import { NavigationDetailsPage } from '../pages/search/search';
     TabsPage,
     ModalContentPage,
     DetailPage,
-    NavigationDetailsPage
+    NavigationDetailsPage,
+    ProductPage,
+    LoginPage,
+    RegisterPage,
+    ResetpwdPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+  AuthService]
 })
 export class AppModule {}

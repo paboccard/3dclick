@@ -1,0 +1,83 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-content padding>
+  <h2>Please, Login</h2>
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+        placeholder="Your email address"
+        [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
+      <p>Merci de rentrer votre email.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Mot de passe</ion-label>
+      <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)"
+        placeholder="Your password"
+        [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+      <p>Votre mot de passe doit comporter plus de 6 charactères</p>
+    </ion-item>
+    <button ion-button block type="submit">
+      Login
+    </button>
+  </form>
+
+  <button ion-button block clear (click)="register()">
+    Pas encore de compte? Enregistrez-vous!
+  </button>
+  <button ion-button block clear (click)="resetPwd()">
+    Mot de passe oublié
+  </button>
+</ion-content>-->
+
+<ion-content class="login-content" padding>
+  <div class="login-box">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" novalidate>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
+              <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
+        placeholder="Votre adresse mail"
+        [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
+              <p>Merci de rentrez votre email.</p>
+            </ion-item>
+            <ion-item>
+              <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)"
+        placeholder="Votre mot de passe"
+        [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+              <p>Minimum 6 charactères</p>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit">Connexion</button>
+        </ion-col>
+      </ion-row>
+      </form>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="register-btn" block clear (click)="register()">Créer un nouveau compte</button>
+          <button ion-button class="register-btn" block clear (click)="resetPwd()">Mot de passe oublié</button>
+        </ion-col>
+      </ion-row>
+      
+    
+  </div>
+</ion-content>
