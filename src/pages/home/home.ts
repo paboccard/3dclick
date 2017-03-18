@@ -21,6 +21,10 @@ export class HomePage {
 	products : any;
 	theProducts: FirebaseListObservable<any>;
 	theCategories: FirebaseListObservable<any>;
+	afService : any;
+	productEnTeteDeListe : FirebaseListObservable<any>;
+	productNouveaute : FirebaseListObservable<any>;
+	static userUid : string;
 
   constructor(public navCtrl: NavController, af: AngularFire, public authService: AuthService) {
 
@@ -28,16 +32,32 @@ export class HomePage {
 	  if (!user) {
 	    navCtrl.setRoot(LoginPage);
 	  }
+	  else{
+	  	HomePage.userUid = firebase.auth().currentUser.uid;
+	  }
 	});
 
   	this.ctrl = navCtrl;
+  	this.afService = af;
   	this.theCategories = af.database.list('/categories');
   	this.theProducts = af.database.list('/products');
+  	
+  	//this.productEnTeteDeListe = this.queryGetProductCategory("En tête d'impression");
+  	//this.productNouveaute = this.queryGetProductCategory("Nouveautés");
   	
   }
 
   goToProduct(product){
   	this.ctrl.push(ProductPage, product);
+  }
+
+  queryGetProductCategory(keyCategory:string){
+  	return this.afService.database.list('/products', {
+          query: {
+            orderByChild: 'category',  // Search field
+            equalTo: keyCategory
+          }
+        })
   }
 
   logout() {
@@ -87,5 +107,5 @@ export class HomePage {
 			categorie : "Suggestion"
 	}); 
   }
-
+ 
 }

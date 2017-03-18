@@ -1,17 +1,9 @@
 <ion-header>
   <ion-navbar color="ter">
-    <ion-buttons start>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
     <ion-title>Home</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="person-add"></ion-icon>
-      </button>
       <button ion-button icon-only color="royal" (click)="logout()">
-        <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+        <ion-icon ios="md-log-out" md="md-exit"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -26,7 +18,32 @@
       </ion-item>
     </ion-item>
   </ion-list>-->
+  
 
+  <!--<ion-list no-lines *ngFor="let cat of theCategories | async">
+    <ion-list-header no-lines class="header_category">
+      <ion-label class="category_name">{{cat.categorie}}</ion-label>
+    </ion-list-header>
+    <div (onCreate)="#prod = queryGetProductCategory(cat.$key)">
+    <ion-slides slidesPerView="2">
+      <ion-slide *ngFor="let product of prod | async">
+        <ion-card (click)="goToProduct(product)" >
+
+            <img src={{product.imgSrc}}>
+
+            <ion-item>
+              <h2>{{product.title}}</h2>
+              <p>{{product.description}}</p>
+            </ion-item>
+
+            <ion-item>
+              <span item-left class="product_price">{{product.prix}} €</span>
+            </ion-item>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  </ion-list>-->
   <ion-list no-lines *ngFor="let cat of theCategories | async">
     <ion-list-header no-lines class="header_category">
       <ion-label class="category_name">{{cat.categorie}}</ion-label>

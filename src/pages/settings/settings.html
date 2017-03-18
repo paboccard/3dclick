@@ -112,30 +112,31 @@
     <div [ngSwitch]="onglet" col-lg-10>
 
         <div *ngSwitchCase="'info'">
+          <form [formGroup]="profilForm" (ngSubmit)="validChanges()" novalidate>
             <div center>
                 <button ion-button round color="danger" *ngIf="edited" (click)="cancelChanges()">Annuler</button>
-                <button ion-button round color="secondary" *ngIf="edited">Valider</button>
+                <button ion-button round color="secondary" *ngIf="edited" class="submit-btn" type="submit">Valider</button>
             </div>
             <ion-list no-lines>
                 <ion-item>
                   <ion-icon name="logo-facebook"></ion-icon>
                     <ion-label stacked>Nom</ion-label>
-                    <ion-input id="lblLastName" disabled="{{isDisabled}}" type="text" value="Boccard"></ion-input>
+                    <ion-input formControlName="nom" disabled="{{isDisabled}}" type="text" value="{{userProfile?.nom}}"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-icon name="logo-facebook"></ion-icon>
                     <ion-label stacked>Prénom</ion-label>
-                    <ion-input disabled="{{isDisabled}}" type="text" value="Pierre-Alexis"></ion-input>
+                    <ion-input formControlName="prenom" disabled="{{isDisabled}}" type="text" value="{{userProfile?.prenom}}"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-icon name="logo-facebook"></ion-icon>
                     <ion-label stacked>Date de naissance</ion-label>
-                    <ion-input disabled="{{isDisabled}}" type="text" value="16.08.1993"></ion-input>
+                    <ion-input formControlName="dateNaissance" disabled="{{isDisabled}}" type="text" value="{{userProfile?.dateNaissance}}"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-icon name="logo-facebook"></ion-icon>
                     <ion-label stacked>Adresse</ion-label>
-                    <ion-input disabled="{{isDisabled}}" type="text" value="9, rue Ferruce - 84000 Avignon"></ion-input>
+                    <ion-input formControlName="adresse" disabled="{{isDisabled}}" type="text" value="{{userProfile?.adresse}}"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-icon name="logo-facebook"></ion-icon>
@@ -143,6 +144,7 @@
                     <ion-input disabled="{{isDisabled}}" type="password" value="boccard"></ion-input>
                 </ion-item>
             </ion-list>
+          </form>
         </div>
 
         <div *ngSwitchCase="'plan'">
